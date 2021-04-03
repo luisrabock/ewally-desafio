@@ -1,0 +1,86 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "version": "1.0.0",
+    "title": "ewally-desafio-api",
+    "description": "Api criada para desafio da Ewally.",
+    "contact": {
+      "name": "Luis Paulo Rabock",
+      "email": "luis.rabock@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000/",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/api/v1/boleto/{payNumber}": {
+      "get": {
+        "tags": [
+          "Boleto"
+        ],
+        "description": "Recebe linha digitável, faz validação e caso passe retorna status 200 com informações de valor, data e código de barras.\n Caso inválida retorna status com informação do erro. ",
+        "operationId": "returnBankBilletsInfo",
+        "parameters": [
+          {
+            "name": "payNumber",
+            "in": "path",
+            "description": "Linha digitável",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informações retornadas de uma linha digitavel válida.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseBankBillets"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ResponseBankBillets": {
+        "type": "object",
+        "properties": {
+          "barCode": { 
+            "type": "string",
+            "example": "21299758700000020000001121100012100447561740"
+          }, 
+          "amount": { 
+            "type": "string",
+            "example": "20.00"
+          }, 
+          "expirationDate": { 
+            "type": "string",
+            "example": "2018-07-16"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "number"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

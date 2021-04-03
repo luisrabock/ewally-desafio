@@ -1,0 +1,44 @@
+{
+  "name": "ewally-desafio-api",
+  "version": "1.0.0",
+  "description": "<br/>\r <p align=\"center\">\r     ewally-desafio-api 💰\r </p>",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test jest",
+    "dev": "cross-env NODE_ENV=development nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisrabock/ewally-desafio.git"
+  },
+  "author": "Luis Rabock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisrabock/ewally-desafio/issues"
+  },
+  "homepage": "https://github.com/luisrabock/ewally-desafio#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "date-fns": "^2.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fastest-validator": "^1.10.1",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^4.1.6",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
+  }
+}
