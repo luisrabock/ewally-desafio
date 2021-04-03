@@ -1,7 +1,17 @@
 // const logger = require('../config/logger');
+const BankBilletsService = require('../services/BankBilletsService');
 
 module.exports = {
-  async validate(req, res) {
-    return res.json({ barCode: '21299758700000020000001121100012100447561740', amount: '“20.00', expirationDate: new Date() });
+  async validate(req, res, next) {
+    try {
+      const { PayNumber } = req.params;
+
+      const response = BankBilletsService.validate(PayNumber);
+
+      return res.status(200).json(response);
+    } catch (err) {
+      next(err);
+      return err;
+    }
   },
 };
