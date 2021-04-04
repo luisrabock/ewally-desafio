@@ -7,7 +7,7 @@
 
 <br/>
 <p align="center">
-    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/luisrabock/growth-tech-app?style=flat-square">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/luisrabock/ewally-desafio?color=blue&style=flat-square">
       <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/luisrabock/nearby-api?style=flat-square">
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/luisrabock/nearby-api?color=blue&style=flat-square">
         <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/luisrabock/nearby-api">
@@ -16,46 +16,32 @@
 <br/>
 
 
-
-  
  
-An api that is used by the [Nearby](https://github.com/luisrabock/nearby-web) application. It was done using Graphql, Apollo, Mongo and google-auth for authentication.
+API que recebe linhas digitáveis, faz algumas validações e retorna informações de código de barras, data de vencimento(se existir) e valor(se existir).
 
 
 ## 🚀&nbsp; Installation and Documentation
 
-You need to install  [Node.js](https://nodejs.org/en/download/).
-Then you need install  [Npm](https://www.npmjs.com/)  or [Yarn](https://yarnpkg.com/).
+Você precisa instalar  [Node.js](https://nodejs.org/en/download/).
+Você pode instalar também [Yarn](https://yarnpkg.com/) como alternativa para gerenciar as dependências.
 
-Clone repo: [https://github.com/luisrabock/ewally-desafio](https://github.com/luisrabock/ewally-desafio)
+Clone o repositório: [https://github.com/luisrabock/ewally-desafio](https://github.com/luisrabock/ewally-desafio)
 
-🧪 **Development environment**:
+💻 **Development environment**:
 
-In the root folder you need install the dependencies:
+Na pasta raiz do projeto você deve rodar os comandos:
 
-```yarn install```
+```yarn install``` ou ```npm install```
 
-Start server:
+Para subir a API:
 
-```yarn dev```
-
-
-Now application is running!!
-
-## ❤️&nbsp; Community and Contributions
-
-Whether you are helping fixing bugs, proposing new feature, improving the app . **I love to have you as part of the project**.
+```yarn dev``` ou ```npm run dev```
 
 
-## 📫&nbsp; Have a question? Want to chat? Ran into a problem?
+A aplicação está rodando na porta 4000!!
 
-  
-Glad to help you. My e-mail account is the best form of contact: **luis.rabock@hotmail.com** .
+🧪 **Tests environment**:
 
-
-## 🤝&nbsp; Found a bug? Missing a specific feature?
-
-Feel free to **file a new issue** with a respective title and description on the the [NearBy-api](https://github.com/luisrabock/nearby-api/issues) repository. If you already found a solution to your problem, **i would love to review your pull request**!
 
 ## 📘&nbsp; License
-The NearBy-api content management system is released under the under terms of the [MIT License](LICENSE).
+O conteúdo de ewally-desafio-api está licenciado sob os termos da MIT License [MIT License](LICENSE).
