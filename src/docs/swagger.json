@@ -25,8 +25,8 @@
         "tags": [
           "Boleto"
         ],
-        "description": "Recebe linha digitável, faz validação e caso passe retorna status 200 com informações de valor, data e código de barras.\n Caso inválida retorna status com informação do erro. ",
-        "operationId": "returnBankBilletsInfo",
+        "description": "Recebe linha digitável de um boleto bancário ou de arrecadação, faz validação e caso passe retorna status 200 com informações de valor, data e código de barras.\n Caso inválida retorna status 400 com informação do erro. ",
+        "operationId": "returnBilletsInfo",
         "parameters": [
           {
             "name": "payNumber",

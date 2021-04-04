@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const fs = require('fs');
-const bankBilletsRoutes = require('./routes/bankBilletsRoutes');
+const BilletsRoutes = require('./routes/BilletsRoutes');
 const swaggerDocument = require('./docs/swagger.json');
 
 dotenv.config({
@@ -15,14 +15,14 @@ dotenv.config({
 const app = express();
 
 app.use(cors());
-if (process.env.NODE_ENV === 'production') app.use(morgan('common', { stream: fs.createWriteStream('./logs/access.log', { flags: 'a' }) }));
+if (process.env.NODE_ENV === 'production') app.use(morgan('common', { stream: fs.createWriteStream('./logs/api.log', { flags: 'a' }) }));
 else app.use(morgan('dev'));
 
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use(bankBilletsRoutes);
+app.use(BilletsRoutes);
 
 // 404 handler and pass to error handler
 app.use((req, res, next) => {
@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 });
 
 // Error handler
-app.use((err, req, res, next) => {
+app.use((err, res, next) => {
   res.status(err.status || 500);
   res.send({
     error: {

@@ -1,12 +1,11 @@
-// const logger = require('../config/logger');
-const BankBilletsService = require('../services/BankBilletsService');
+const BilletsService = require('../services/BilletsService');
 
 module.exports = {
   async validate(req, res, next) {
     try {
       const { PayNumber } = req.params;
 
-      const response = BankBilletsService.validate(PayNumber);
+      const response = BilletsService.validate(PayNumber);
 
       return res.status(200).json(response);
     } catch (err) {
