@@ -1,6 +1,5 @@
 const express = require('express');
 const createError = require('http-errors');
-const dotenv = require('dotenv');
 const morgan = require('morgan');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
