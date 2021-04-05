@@ -6,15 +6,7 @@
 </p>
 
 <br/>
-<p align="center">
-    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/luisrabock/ewally-desafio?color=blue&style=flat-square">
-      <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/luisrabock/nearby-api?style=flat-square">
-	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/luisrabock/nearby-api?color=blue&style=flat-square">
-        <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/luisrabock/nearby-api">
-        <img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/luisrabock/nearby-api?color=red">
-</p>
 <br/>
-
 
  
 API que recebe linhas digitáveis, faz algumas validações e retorna informações de código de barras, data de vencimento(se existir) e valor(se existir).
@@ -51,13 +43,13 @@ Será apresentado o coverage aproximado.
 📋 **Docs**:
 
 
-```REST Client Vs Code```
+```REST Client Vs Code - ```
 No caminho: pastaRaiz\src\docs\rest existe um arquivo **`billet.http`**. Com a extensão REST Client instalada no vscode, é possivel executar requisições nesse arquivo.
 
-```OpenAPI(Swagger)```
+```OpenAPI(Swagger) - ```
 Nessa API também existe uma documentação feita com OpenAPI(swagger), ali existem detalhes da response e também o formato do erro que pode retornar. Aqui também é possivel executar requisições, ela está dísponivel em: http://localhost:4000/api-docs.
 
-```Outras opções para consumir a API```
+```Outras opções para consumir a API - ```
 Outra opção é usar alguma ferramenta(postman, insomnia ) para fazer as requisições.
 Método: GET
 Endpoint: http://localhost:4000/api/v1/boleto/
