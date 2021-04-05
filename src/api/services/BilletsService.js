@@ -92,7 +92,7 @@ const findExpirationDate = (payNumber, typeBillet) => {
 
 const findCoinCode = (barcode) => barcode.charAt(2);
 
-const findAmountinCashInNumber = (barCode, typeBillet) => {
+const findAmountinCash = (barCode, typeBillet) => {
   if (typeBillet === typeBilletsConstants.tituloBancario) {
     const stringAmountCash = `${barCode.substr(9, 8)}.${barCode.substr(17, 2)}`;
     const floatAmountCash = parseFloat(stringAmountCash, 10);
@@ -171,7 +171,7 @@ const validate = (payNumber) => {
   const fields = makeBilletFields(payNumber, typeBillet);
   const verifyCodes = makeVerifyCodes(payNumber, typeBillet);
   const barCode = makeBarCode(fields, typeBillet, verifyCodes);
-  const amountCash = findAmountinCashInNumber(barCode, typeBillet);
+  const amountCash = findAmountinCash(barCode, typeBillet);
   const expirationDate = findExpirationDate(payNumber, typeBillet);
   const normalizeBillet = normalizePayloadBillet(barCode, amountCash, expirationDate);
   isPayNumberValid(fields, verifyCodes, typeBillet, barCode);
