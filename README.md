@@ -48,11 +48,17 @@ Na pasta raiz do projeto você deve rodar os comandos:
 
 Será apresentado o coverage aproximado.
 
-No caminho: pastaRaiz\src\docs\rest existe um arquivo #### **`billet.http`**. Com a extensão REST Client instalada no vscode, é possivel executar requisições nesse arquivo.
+📋 **Docs**:
 
+
+```REST Client Vs Code```
+No caminho: pastaRaiz\src\docs\rest existe um arquivo **`billet.http`**. Com a extensão REST Client instalada no vscode, é possivel executar requisições nesse arquivo.
+
+```OpenAPI(Swagger)```
 Nessa API também existe uma documentação feita com OpenAPI(swagger), ali existem detalhes da response e também o formato do erro que pode retornar. Aqui também é possivel executar requisições, ela está dísponivel em: http://localhost:4000/api-docs.
 
-Outra opção é usar alguma ferramenta para fazer as requisições para essa API.
+```Outras opções para consumir a API```
+Outra opção é usar alguma ferramenta(postman, insomnia ) para fazer as requisições.
 Método: GET
 Endpoint: http://localhost:4000/api/v1/boleto/
 Param: {payNumber}
