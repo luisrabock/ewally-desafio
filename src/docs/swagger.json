@@ -42,7 +42,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseBankBillets"
+                  "$ref": "#/components/schemas/ResponseBillets"
                 }
               }
             }
@@ -53,7 +53,7 @@
   },
   "components": {
     "schemas": {
-      "ResponseBankBillets": {
+      "ResponseBillets": {
         "type": "object",
         "properties": {
           "barCode": { 
@@ -74,10 +74,12 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "number"
+            "type": "number",
+            "example": 400
           },
           "message": {
-            "type": "string"
+            "type": "string",
+            "exemple": "Erro no boleto bancario - dígito verificador do campo A não é válido."
           }
         }
       }

@@ -1,5 +1,5 @@
 module.exports = {
-  isANumber(str) {
+  stringHasOnlyNumbers(str) {
     return !/\D/.test(str);
   },
   isDateValid(date) {
@@ -7,7 +7,7 @@ module.exports = {
       return false;
     } return true;
   },
-  fullDateFromPayNumber(payNumber) {
+  fullDateFromPayNumberConcessionaria(payNumber) {
     const year = payNumber.substr(26, 4);
     const month = payNumber.substr(30, 2);
     const day = payNumber.substr(32, 2);
@@ -17,7 +17,7 @@ module.exports = {
   oneForOddTwoForEven(number) {
     return (number % 2 ? 1 : 2);
   },
-  lessThenNinePlus(number) {
+  lessThanNinePlusMoreSendTwo(number) {
     let multiplier = number;
     if (multiplier < 9) {
       multiplier += 1;

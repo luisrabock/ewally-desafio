@@ -8,10 +8,6 @@ const fs = require('fs');
 const BilletsRoutes = require('./routes/BilletsRoutes');
 const swaggerDocument = require('./docs/swagger.json');
 
-dotenv.config({
-  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
-});
-
 const app = express();
 
 app.use(cors());
@@ -30,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 // Error handler
-app.use((err, res, next) => {
+app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.send({
     error: {

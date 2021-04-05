@@ -4,7 +4,7 @@ const validationHelper = require('../../helpers/validationHelpers');
 const typeBilletsConstants = require('../../constants/typeBilletsConstants');
 const dateConstants = require('../../constants/dateConstants');
 
-const findtypeBillet = (PayNumberLength) => {
+ const findtypeBillet = (PayNumberLength) => {
   if (PayNumberLength === 47) return typeBilletsConstants.tituloBancario;
   if (PayNumberLength === 48) return typeBilletsConstants.pagamentoConcessionaria;
 
@@ -79,11 +79,11 @@ const deleteFullVerifyCodeOnBarCode = (barCode, typeBillet) => {
 
 const findExpirationDate = (payNumber, typeBillet) => {
   if (typeBillet === typeBilletsConstants.tituloBancario) {
-    const factor = findFactor(payNumber);
-    const formattedDate = format(addDays(dateConstants.baseDate, factor), 'yyyy-MM-dd');
+    const factor = parseInt(findFactor(payNumber), 10);
+    const formattedDate = format(addDays(dateConstants.baseDate, factor + 1), 'yyyy-MM-dd');
     return formattedDate;
   }
-  const fullDate = validationHelper.fullDateFromPayNumber(payNumber);
+  const fullDate = validationHelper.fullDateFromPayNumberConcessionaria(payNumber);
   if (validationHelper.isDateValid(fullDate)) {
     return fullDate;
   }
@@ -127,7 +127,7 @@ const calculationModule11 = (barCode, typeBillet) => {
   let multiplier = 2;
   const sumOfBarCode = transformArrayAndReverse.reduce((acc, curr) => {
     const result = curr * multiplier;
-    multiplier = validationHelper.lessThenNinePlus(multiplier);
+    multiplier = validationHelper.lessThanNinePlusMoreSendTwo(multiplier);
 
     return acc + result;
   }, 0);
@@ -164,18 +164,23 @@ const isPayNumberValid = (fields, verifyCodes, typeBillet, barCode) => {
   return true;
 };
 
-module.exports = {
-  validate(payNumber) {
-    if (!validationHelper.isANumber(payNumber)) throw createError(400, 'Linha digitável deve conter apenas números.');
-    const typeBillet = findtypeBillet(payNumber.length);
-    const fields = makeBilletFields(payNumber, typeBillet);
-    const verifyCodes = makeVerifyCodes(payNumber, typeBillet);
-    const barCode = makeBarCode(fields, typeBillet, verifyCodes);
-    const amountCash = findAmountinCashInNumber(barCode, typeBillet);
-    const expirationDate = findExpirationDate(payNumber, typeBillet);
-    const normalizeBillet = normalizePayloadBillet(barCode, amountCash, expirationDate);
-    isPayNumberValid(fields, verifyCodes, typeBillet, barCode);
 
-    return normalizeBillet;
-  },
+const validate = (payNumber) => {
+  if (!validationHelper.stringHasOnlyNumbers(payNumber)) throw createError(400, 'Linha digitável deve conter apenas números.');
+  const typeBillet = findtypeBillet(payNumber.length);
+  const fields = makeBilletFields(payNumber, typeBillet);
+  const verifyCodes = makeVerifyCodes(payNumber, typeBillet);
+  const barCode = makeBarCode(fields, typeBillet, verifyCodes);
+  const amountCash = findAmountinCashInNumber(barCode, typeBillet);
+  const expirationDate = findExpirationDate(payNumber, typeBillet);
+  const normalizeBillet = normalizePayloadBillet(barCode, amountCash, expirationDate);
+  isPayNumberValid(fields, verifyCodes, typeBillet, barCode);
+
+  return normalizeBillet;
+};
+
+module.exports = {
+  validate,
+  findtypeBillet,
+  makeBilletFields
 };

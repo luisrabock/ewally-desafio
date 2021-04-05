@@ -33,7 +33,7 @@ Na pasta raiz do projeto você deve rodar os comandos:
 
 ```yarn install``` ou ```npm install```
 
-Para subir a API:
+Para subir a API com nodemon:
 
 ```yarn dev``` ou ```npm run dev```
 
@@ -41,6 +41,21 @@ Para subir a API:
 A aplicação está rodando na porta 4000!!
 
 🧪 **Tests environment**:
+
+Na pasta raiz do projeto você deve rodar os comandos:
+
+```yarn test``` ou ```npm run test```
+
+Será apresentado o coverage aproximado.
+
+No caminho: pastaRaiz\src\docs\rest existe um arquivo #### **`billet.http`**. Com a extensão REST Client instalada no vscode, é possivel executar requisições nesse arquivo.
+
+Nessa API também existe uma documentação feita com OpenAPI(swagger), ali existem detalhes da response e também o formato do erro que pode retornar. Aqui também é possivel executar requisições, ela está dísponivel em: http://localhost:4000/api-docs.
+
+Outra opção é usar alguma ferramenta para fazer as requisições para essa API.
+Método: GET
+Endpoint: http://localhost:4000/api/v1/boleto/
+Param: {payNumber}
 
 
 ## 📘&nbsp; License
